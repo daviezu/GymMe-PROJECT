@@ -79,60 +79,88 @@
     <Content Include="App_Data\LocalDatabase_log.ldf">
       <DependentUpon>LocalDatabase.mdf</DependentUpon>
     </Content>
-    <Content Include="LocalDatabaseModel.Context.tt">
+    <Content Include="Models\LocalDatabaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LocalDatabaseModel.Context.cs</LastGenOutput>
       <DependentUpon>LocalDatabaseModel.edmx</DependentUpon>
     </Content>
-    <Content Include="LocalDatabaseModel.tt">
+    <Content Include="Models\LocalDatabaseModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LocalDatabaseModel.edmx</DependentUpon>
       <LastGenOutput>LocalDatabaseModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\OrderSupplement.aspx" />
+    <Content Include="Views\TransactionDetailPage.aspx" />
+    <Content Include="Views\TransactionHistory.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LocalDatabaseModel.Context.cs">
+    <Compile Include="Models\LocalDatabaseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LocalDatabaseModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="LocalDatabaseModel.cs">
+    <Compile Include="Models\LocalDatabaseModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LocalDatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="LocalDatabaseModel.Designer.cs">
+    <Compile Include="Models\LocalDatabaseModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LocalDatabaseModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="MsCart.cs">
+    <Compile Include="Models\MsCart.cs">
       <DependentUpon>LocalDatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MsSupplement.cs">
+    <Compile Include="Models\MsSupplement.cs">
       <DependentUpon>LocalDatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MsSupplementType.cs">
+    <Compile Include="Models\MsSupplementType.cs">
       <DependentUpon>LocalDatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MsUser.cs">
+    <Compile Include="Models\MsUser.cs">
       <DependentUpon>LocalDatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TransactionDetail.cs">
+    <Compile Include="Repository\Singleton.cs" />
+    <Compile Include="Repository\SupplementRepository.cs" />
+    <Compile Include="Repository\TransactionRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Models\TransactionDetail.cs">
       <DependentUpon>LocalDatabaseModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="TransactionHeader.cs">
+    <Compile Include="Models\TransactionHeader.cs">
       <DependentUpon>LocalDatabaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderSupplement.aspx.cs">
+      <DependentUpon>OrderSupplement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OrderSupplement.aspx.designer.cs">
+      <DependentUpon>OrderSupplement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionDetailPage.aspx.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionDetailPage.aspx.designer.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionHistory.aspx.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionHistory.aspx.designer.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="LocalDatabaseModel.edmx">
+    <EntityDeploy Include="Models\LocalDatabaseModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LocalDatabaseModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="LocalDatabaseModel.edmx.diagram">
+    <Content Include="Models\LocalDatabaseModel.edmx.diagram">
       <DependentUpon>LocalDatabaseModel.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
@@ -150,8 +178,6 @@
     <Folder Include="Controller\" />
     <Folder Include="Factory\" />
     <Folder Include="Handler\" />
-    <Folder Include="Repository\" />
-    <Folder Include="Views\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

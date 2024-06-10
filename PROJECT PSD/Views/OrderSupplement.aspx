@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">
+            <asp:GridView ID="OrderSupplementGV" runat="server" AutoGenerateColumns="false">
                 <Columns>
                     <asp:BoundField DataField="SupplementName" HeaderText="Supplement Name"></asp:BoundField>
                     <asp:BoundField DataField="SupplementExpiryDate" HeaderText="Expiry Date"></asp:BoundField>

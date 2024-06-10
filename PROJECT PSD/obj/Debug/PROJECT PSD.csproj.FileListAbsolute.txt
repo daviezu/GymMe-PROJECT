@@ -61,3 +61,5 @@ C:\Users\ASUS\Documents\GitHub\GymMe\GymMe\PROJECT PSD\obj\Debug\PROJECT PSD.csp
 C:\Users\ASUS\Documents\GitHub\GymMe\GymMe\PROJECT PSD\obj\Debug\PROJECT .082AF040.Up2Date
 C:\Users\ASUS\Documents\GitHub\GymMe\GymMe\PROJECT PSD\obj\Debug\PROJECT PSD.dll
 C:\Users\ASUS\Documents\GitHub\GymMe\GymMe\PROJECT PSD\obj\Debug\PROJECT PSD.pdb
+C:\Users\ASUS\Documents\GitHub\GymMe\GymMe\PROJECT PSD\bin\Newtonsoft.Json.dll
+C:\Users\ASUS\Documents\GitHub\GymMe\GymMe\PROJECT PSD\bin\Newtonsoft.Json.xml

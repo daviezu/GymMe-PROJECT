@@ -32,8 +32,8 @@ namespace PROJECT_PSD.Views
                                      };
 
 
-                GridView1.DataSource = supplementData;
-                GridView1.DataBind();
+                OrderSupplementGV.DataSource = supplementData;
+                OrderSupplementGV.DataBind();
             }
 
         }

@@ -50,6 +50,9 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -89,12 +92,20 @@
       <DependentUpon>LocalDatabaseModel.edmx</DependentUpon>
       <LastGenOutput>LocalDatabaseModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\InsertSupplement.aspx" />
+    <Content Include="Views\ManageSupplement.aspx" />
     <Content Include="Views\OrderSupplement.aspx" />
     <Content Include="Views\TransactionDetailPage.aspx" />
     <Content Include="Views\TransactionHistory.aspx" />
+    <Content Include="Views\UpdateSupplement.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebService\SupplementWebService.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\SupplementController.cs" />
+    <Compile Include="Factory\SupplementFactory.cs" />
+    <Compile Include="Handler\JsonHandler.cs" />
+    <Compile Include="Handler\SupplementHandler.cs" />
     <Compile Include="Models\LocalDatabaseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -133,6 +144,21 @@
     <Compile Include="Models\TransactionHeader.cs">
       <DependentUpon>LocalDatabaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utils\JsonUtils.cs" />
+    <Compile Include="Views\InsertSupplement.aspx.cs">
+      <DependentUpon>InsertSupplement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InsertSupplement.aspx.designer.cs">
+      <DependentUpon>InsertSupplement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageSupplement.aspx.cs">
+      <DependentUpon>ManageSupplement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ManageSupplement.aspx.designer.cs">
+      <DependentUpon>ManageSupplement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\OrderSupplement.aspx.cs">
       <DependentUpon>OrderSupplement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -154,6 +180,17 @@
     <Compile Include="Views\TransactionHistory.aspx.designer.cs">
       <DependentUpon>TransactionHistory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\UpdateSupplement.aspx.cs">
+      <DependentUpon>UpdateSupplement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateSupplement.aspx.designer.cs">
+      <DependentUpon>UpdateSupplement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebService\SupplementWebService.asmx.cs">
+      <DependentUpon>SupplementWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\LocalDatabaseModel.edmx">
@@ -174,11 +211,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-    <Folder Include="Factory\" />
-    <Folder Include="Handler\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

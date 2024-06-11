@@ -22,10 +22,9 @@ namespace PROJECT_PSD.Repository
             return transactionHeaders;
         }
 
-        public static List<TransactionDetail> GetTransactionDetailsByHeaderId(int id)
+        public static List<TransactionHeader> GetAllUserTransaction(int id)
         {
-            return (from transaction in db.TransactionDetails where transaction.TransactionID == id select transaction).ToList();
-
+            return (from transaction in db.TransactionHeaders where transaction.UserID == id select transaction).ToList();
         }
 
         public static TransactionHeader GetTransactionHeaderById(int id)

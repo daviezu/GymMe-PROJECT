@@ -36,10 +36,6 @@ namespace PROJECT_PSD.Views
 
             tobeupdated.Status = "handled";
             TransactionRepository.UpdateTransactionstatus(tobeupdated);
-
-
-
-            
         }
     }
 }

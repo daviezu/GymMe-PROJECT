@@ -15,25 +15,30 @@ namespace PROJECT_PSD.Views
         {
             if (!IsPostBack)
             {
-                int userid = Convert.ToInt32(Request.QueryString["ID"]);
-                MsUser user = UserRepository.GetUserById(userid);
+                MsUser currentUser = Session["User"] as MsUser;
 
-                List<TransactionHeader> list;
+                if (currentUser != null)
+                {
 
-                /*if (user.UserRole == "Admin")
-                {*/
-                list = TransactionRepository.GetAllTransactionHeader();
-                /* }
-                 else
-                 {
+                    List<TransactionHeader> list;
 
-                 }*/
-                //bikin role permission
+                    if (currentUser.UserRole == "Admin")
+                    {
+                        list = TransactionRepository.GetAllTransactionHeader();
+                        TransactionHistoryGV.DataSource = list;
+                        TransactionHistoryGV.DataBind();
+                    }
 
-
-                TransactionHistoryGV.DataSource = list;
-                TransactionHistoryGV.DataBind();
-
+                    // role = customer
+                    else if(currentUser.UserRole == "Customer")
+                    {
+                        int userID = currentUser.UserID;
+                        list = TransactionRepository.GetAllUserTransaction(userID);
+                        TransactionHistoryGV.DataSource = list;
+                        TransactionHistoryGV.DataBind();
+                    }
+                }
+                else Response.Redirect("~/Views/Login.aspx");
             }
 
         }

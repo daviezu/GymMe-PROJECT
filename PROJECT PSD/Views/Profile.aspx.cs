@@ -1,12 +1,9 @@
 ﻿using PROJECT_PSD.Controller;
 using PROJECT_PSD.Handler;
 using PROJECT_PSD.Models;
-using PROJECT_PSD.Repository;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -54,7 +51,7 @@ namespace PROJECT_PSD.Views
             string dob = txtDOB.Text;
 
             string validationMessage = UserController.ValidateProfileUpdate(username, email, gender, dob);
-            if(validationMessage == null)
+            if (validationMessage == null)
             {
                 int userID = user.UserID;
                 DateTime dt = Convert.ToDateTime(dob);

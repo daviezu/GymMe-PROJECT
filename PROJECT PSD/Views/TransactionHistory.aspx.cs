@@ -30,7 +30,7 @@ namespace PROJECT_PSD.Views
                     }
 
                     // role = customer
-                    else if(currentUser.UserRole == "Customer")
+                    else if (currentUser.UserRole == "Customer")
                     {
                         int userID = currentUser.UserID;
                         list = TransactionRepository.GetAllUserTransaction(userID);

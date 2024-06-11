@@ -23,7 +23,7 @@ namespace PROJECT_PSD.Views
         private void BindGridView()
         {
             int id = Convert.ToInt32(Request.QueryString["ID"]);
-           
+
 
             TransactionHeader transactionHeader = TransactionRepository.GetTransactionHeaderById(id);
             List<TransactionDetail> transactionDetails = TransactionRepository.GetAllTransactionDetail();

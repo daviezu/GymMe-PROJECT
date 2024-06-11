@@ -19,6 +19,7 @@ namespace PROJECT_PSD.Views
                 MsUser user = UserRepository.GetUserById(userid);
 
                 List<TransactionHeader> list;
+
                 /*if (user.UserRole == "Admin")
                 {*/
                 list = TransactionRepository.GetAllTransactionHeader();

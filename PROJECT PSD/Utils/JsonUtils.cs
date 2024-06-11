@@ -22,7 +22,7 @@ namespace PROJECT_PSD.Utils
             {
                 return JsonConvert.DeserializeObject<T>(json);
             }
-            catch (JsonReaderException ex)
+            catch (JsonReaderException)
             {
                 // Log the exception
                 // Optionally return a default value or null

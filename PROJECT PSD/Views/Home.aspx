@@ -6,12 +6,12 @@
     <h2>Welcome to GymMe</h2>
     <asp:Label ID="lblRole" runat="server" Text="Label"></asp:Label>
     <asp:GridView ID="CustomerGV" runat="server" AutoGenerateColumns="False" Visible="False">
-        <Columns>
+        <columns>
             <asp:BoundField DataField="UserId" HeaderText="User ID" SortExpression="UserId" />
             <asp:BoundField DataField="UserName" HeaderText="Username" SortExpression="UserName" />
             <asp:BoundField DataField="UserEmail" HeaderText="Email" SortExpression="UserEmail" />
             <asp:BoundField DataField="UserGender" HeaderText="Gendeer" SortExpression="UserGender" />
             <asp:BoundField DataField="UserDOB" HeaderText="Date of Birth" SortExpression="UserDOB" />
-        </Columns>
+        </columns>
     </asp:GridView>
 </asp:Content>

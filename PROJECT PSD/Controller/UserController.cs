@@ -1,45 +1,73 @@
-﻿using PROJECT_PSD.Handler;
-using PROJECT_PSD.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace PROJECT_PSD.Controller
 {
     public class UserController
     {
-        public static string InsertUser(string name, string email, DateTime dob, string gender, string role, string password)
+        public static string ValidateLogin(string username, string password)
         {
-            return UserHandler.InsertUser(name, email, dob, gender, role, password);
+            if (string.IsNullOrEmpty(username))
+            {
+                return "Username cannot be empty";
+            }
+
+            if (string.IsNullOrEmpty(password))
+            {
+                return "Password cannot be empty";
+            }
+            return null;
         }
 
-        public static MsUser checkUserLogin(string username, string password)
+        public static string ValidateRegistration(string username, string email, string gender, string password, string confirmPassword, string dob)
         {
-            return UserHandler.checkUserLogin(username, password);
+            if (username.Length < 5 || username.Length > 15)
+            {
+                return "Username must be between 5 and 15 characters.";
+            }
+
+            if (!email.EndsWith(".com"))
+            {
+                return "Email must end with '.com'.";
+            }
+
+            if (string.IsNullOrEmpty(gender))
+            {
+                return "Gender must be chosen.";
+            }
+
+            if (string.IsNullOrEmpty(password) || !IsAlphanumeric(password))
+            {
+                return "Password must be alphanumeric and cannot be empty";
+            }
+
+            if (string.IsNullOrEmpty(confirmPassword))
+            {
+                return "Confirm Password cannot be empty";
+            }
+
+            if (password != confirmPassword)
+            {
+                return "Passwords do not match.";
+            }
+
+            if (!DateTime.TryParse(dob, out DateTime dateOfBirth))
+            {
+                return "Invalid date of birth.";
+            }
+
+            return null;
         }
 
-        public static string GetUserRole(string username, string password)
+        private static bool IsAlphanumeric(string password)
         {
-            return UserHandler.GetUserRole(username, password);
-        }
-        public static MsUser GetUserByUsername(string username)
-        {
-            return UserHandler.GetUserByUsername(username);
-        }
-
-        public static bool UpdateUserProfile(string currentUsername, string newUsername, string email, string gender, DateTime dob)
-        {
-            return UserHandler.UpdateUserProfile(currentUsername, newUsername, email, gender, dob);
-        }
-
-        public static bool UpdateUserPassword(string username, string oldPassword, string newPassword)
-        {
-            return UserHandler.UpdateUserPassword(username, oldPassword, newPassword);
-        }
-        public static List<MsUser> GetAllCustomers()
-        {
-            return UserHandler.GetAllCustomers();
+            Regex regex = new Regex("^[a-zA-Z0-9]+$");
+            return regex.IsMatch(password);
         }
     }
 }

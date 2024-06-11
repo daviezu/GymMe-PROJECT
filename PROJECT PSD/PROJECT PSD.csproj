@@ -92,9 +92,12 @@
       <DependentUpon>LocalDatabaseModel.edmx</DependentUpon>
       <LastGenOutput>LocalDatabaseModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\Home.aspx" />
     <Content Include="Views\InsertSupplement.aspx" />
+    <Content Include="Views\Login.aspx" />
     <Content Include="Views\ManageSupplement.aspx" />
     <Content Include="Views\OrderSupplement.aspx" />
+    <Content Include="Views\Register.aspx" />
     <Content Include="Views\TransactionDetailPage.aspx" />
     <Content Include="Views\TransactionHistory.aspx" />
     <Content Include="Views\TransactionQueuePage.aspx" />
@@ -104,7 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\SupplementController.cs" />
+    <Compile Include="Controller\UserController.cs" />
     <Compile Include="Factory\SupplementFactory.cs" />
+    <Compile Include="Factory\UserFactory.cs" />
     <Compile Include="Handler\JsonHandler.cs" />
     <Compile Include="Handler\SupplementHandler.cs" />
     <Compile Include="Models\LocalDatabaseModel.Context.cs">
@@ -146,12 +151,26 @@
       <DependentUpon>LocalDatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Utils\JsonUtils.cs" />
+    <Compile Include="Views\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\InsertSupplement.aspx.cs">
       <DependentUpon>InsertSupplement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\InsertSupplement.aspx.designer.cs">
       <DependentUpon>InsertSupplement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ManageSupplement.aspx.cs">
       <DependentUpon>ManageSupplement.aspx</DependentUpon>
@@ -160,12 +179,26 @@
     <Compile Include="Views\ManageSupplement.aspx.designer.cs">
       <DependentUpon>ManageSupplement.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Master\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Master\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
     <Compile Include="Views\OrderSupplement.aspx.cs">
       <DependentUpon>OrderSupplement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\OrderSupplement.aspx.designer.cs">
       <DependentUpon>OrderSupplement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\TransactionDetailPage.aspx.cs">
       <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
@@ -209,6 +242,7 @@
       <DependentUpon>LocalDatabaseModel.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
+    <Content Include="Views\Master\Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

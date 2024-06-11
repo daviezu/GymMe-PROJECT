@@ -1,5 +1,6 @@
 ﻿using PROJECT_PSD.Controller;
 using PROJECT_PSD.Models;
+using PROJECT_PSD.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,7 +52,7 @@ namespace PROJECT_PSD.Views
 
         private void LoadCustomerData()
         {
-            var customers = UserController.GetAllCustomers();
+            var customers = UserRepository.GetAllCustomers();
             CustomerGV.DataSource = customers;
             CustomerGV.DataBind();
         }

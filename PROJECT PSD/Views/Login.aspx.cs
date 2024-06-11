@@ -39,12 +39,11 @@ namespace PROJECT_PSD.Views
         {
             string username = txtUsername.Text;
             string password = txtPassword.Text; 
-            bool remmemberMe = chkRememberMe.Checked;
-
-            //System.Diagnostics.Debug.WriteLine($"Username: {username}");
-            //System.Diagnostics.Debug.WriteLine($"Password: {password}");
+            bool rememberMe = chkRememberMe.Checked;
 
             string validationMessage = UserController.ValidateLogin(username, password);
+            Debug.WriteLine($"Username: {username}, Password: {password}, Remember Me: {rememberMe}");
+
 
             if (validationMessage == null)
             {
@@ -52,6 +51,13 @@ namespace PROJECT_PSD.Views
                 if (checkUser != null)
                 {
                     Session["User"] = checkUser;
+                    if(rememberMe)
+                    {
+                        HttpCookie cookie = new HttpCookie("user_cookie");
+                        cookie.Value = checkUser.UserID.ToString();
+                        cookie.Expires = DateTime.Now.AddHours(1);
+                        Response.Cookies.Add(cookie);
+                    }
                     Response.Redirect("~/Views/Home.aspx");
                 }
                 else lblMessage.Text = "User doesn't exist";

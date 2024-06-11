@@ -14,25 +14,32 @@ namespace PROJECT_PSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            MsUser user = Session["User"] as MsUser;
-
+            //MsUser user = Session["User"] as MsUser;
+            MsUser user;
             if (!IsPostBack)
             {
-                if (user != null)
-
+                if (Session["User"] == null && Request.Cookies["user_cookie"] == null)
                 {
-                    string role = GetCurrentUserRole();
-                    lblRole.Text = $"Your role is {user.UserRole}";
-
-                    if (role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
-                    {
-                        CustomerGV.Visible = true;
-                        LoadCustomerData();
-                    }
+                    Response.Redirect("~/Views/Login.aspx");
                 }
                 else
                 {
-                    Response.Redirect("~/Views/Login.aspx");
+                    if (Session["User"] == null)
+                    {
+                        string strID = Request.Cookies["user_cookie"].Value;
+                        int userID = int.Parse(strID);
+                        user = UserRepository.GetUserById(userID);
+                        Session["User"] = user;
+
+                        string role = GetCurrentUserRole();
+                        lblRole.Text = $"Your role is {user.UserRole}";
+
+                        if (role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
+                        {
+                            CustomerGV.Visible = true;
+                            LoadCustomerData();
+                        }
+                    }
                 }
             }
         }

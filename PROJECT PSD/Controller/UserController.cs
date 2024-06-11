@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PROJECT_PSD.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -68,6 +69,52 @@ namespace PROJECT_PSD.Controller
         {
             Regex regex = new Regex("^[a-zA-Z0-9]+$");
             return regex.IsMatch(password);
+        }
+
+        public static string ValidateProfileUpdate(string username, string email, string gender, string dob)
+        {
+            if (username.Length < 5 || username.Length > 15 || !System.Text.RegularExpressions.Regex.IsMatch(username, "^[a-zA-Z0-9]+$"))
+            {
+                return "Username must be between 5 and 15 characters and can only contain alphabets and spaces.";
+            }
+
+            if (!email.EndsWith(".com"))
+            {
+                return "Email must end with '.com'.";
+            }
+
+            if (string.IsNullOrEmpty(gender))
+            {
+                return "Gender must be chosen.";
+            }
+
+            if (string.IsNullOrEmpty(dob))
+            {
+                return "Date of Birth cannot be empty.";
+            }
+
+            if (!DateTime.TryParse(dob, out _))
+            {
+                return "Invalid date of birth.";
+            }
+
+            return null;
+        }
+
+        public static string ValidatePasswordUpdate(string oldPassword, string newPassword)
+        {
+            if (string.IsNullOrEmpty(oldPassword))
+            {
+                return "Old password must be same as the current password and cannot be empty.";
+            }
+
+            if (!IsAlphanumeric(newPassword))
+            {
+                return "New password must be alphanumeric and cannot be empty.";
+            }
+
+
+            return null;
         }
     }
 }

@@ -32,8 +32,6 @@ namespace PROJECT_PSD.Views
             string dob = txtDOB.Text;
 
             string validationMessage = UserController.ValidateRegistration(username, email, gender, password, confirmPassword, dob);
-            Debug.WriteLine(password);
-
 
             if (validationMessage == null)
             {

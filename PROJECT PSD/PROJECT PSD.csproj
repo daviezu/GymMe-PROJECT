@@ -97,6 +97,7 @@
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\ManageSupplement.aspx" />
     <Content Include="Views\OrderSupplement.aspx" />
+    <Content Include="Views\Profile.aspx" />
     <Content Include="Views\Register.aspx" />
     <Content Include="Views\TransactionDetailPage.aspx" />
     <Content Include="Views\TransactionHistory.aspx" />
@@ -112,6 +113,7 @@
     <Compile Include="Factory\UserFactory.cs" />
     <Compile Include="Handler\JsonHandler.cs" />
     <Compile Include="Handler\SupplementHandler.cs" />
+    <Compile Include="Handler\UserHandler.cs" />
     <Compile Include="Models\LocalDatabaseModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -192,6 +194,13 @@
     </Compile>
     <Compile Include="Views\OrderSupplement.aspx.designer.cs">
       <DependentUpon>OrderSupplement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>

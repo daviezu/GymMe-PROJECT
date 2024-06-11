@@ -33,5 +33,17 @@ namespace PROJECT_PSD.Repository
             TransactionHeader getTransactionHeader = (from transaction in db.TransactionHeaders where transaction.TransactionID == id select transaction).FirstOrDefault();
             return getTransactionHeader;
         }
+
+        public static List<TransactionHeader> GetUnhandledTransacion()
+        {
+            return (from transaction in db.TransactionHeaders where transaction.Status == "Unhandled" select transaction).ToList();
+        }
+
+        public static void UpdateTransactionstatus(TransactionHeader transactionHeader)
+        {
+            var existingTransaction = db.TransactionHeaders.Find(transactionHeader.TransactionID);
+            existingTransaction.Status = transactionHeader.Status;
+            db.SaveChanges();
+        }
     }
 }

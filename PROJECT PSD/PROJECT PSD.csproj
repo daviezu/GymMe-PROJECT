@@ -97,6 +97,7 @@
     <Content Include="Views\OrderSupplement.aspx" />
     <Content Include="Views\TransactionDetailPage.aspx" />
     <Content Include="Views\TransactionHistory.aspx" />
+    <Content Include="Views\TransactionQueuePage.aspx" />
     <Content Include="Views\UpdateSupplement.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebService\SupplementWebService.asmx" />
@@ -179,6 +180,13 @@
     </Compile>
     <Compile Include="Views\TransactionHistory.aspx.designer.cs">
       <DependentUpon>TransactionHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionQueuePage.aspx.cs">
+      <DependentUpon>TransactionQueuePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionQueuePage.aspx.designer.cs">
+      <DependentUpon>TransactionQueuePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\UpdateSupplement.aspx.cs">
       <DependentUpon>UpdateSupplement.aspx</DependentUpon>

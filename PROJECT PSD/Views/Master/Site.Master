@@ -17,7 +17,8 @@
                 <li><a href="OrderSupplement.aspx">Order Supplement</a></li>
                 <li><a href="TransactionHistory.aspx">History</a></li>
                 <li><a href="Profile.aspx">Profile</a></li>
-                <li><a href="Login.aspx" onclick="Logout_Click">Logout</a></li>
+                <li><asp:LinkButton ID="btnLogoutCustomer" runat="server" OnClick="Logout_Click">Logout</asp:LinkButton></li>
+
             </asp:Panel>
             <asp:Panel ID="adminNav" runat="server" Visible="false">
                 <li><a href="Home.aspx">Home</a></li>
@@ -25,8 +26,7 @@
                 <li><a href="OrderQueue.aspx">Order Queue</a></li>
                 <li><a href="Profile.aspx">Profile</a></li>
                 <li><a href="TransactionReport.aspx">TransactionReport</a></li>
-                <li><a href="Login.aspx" onclick="Logout_Click">Logout</a></li>
-
+                <li><asp:LinkButton ID="btnLogoutAdmin" runat="server" OnClick="Logout_Click">Logout</asp:LinkButton>
             </asp:Panel>    
         </ul>
     </nav>

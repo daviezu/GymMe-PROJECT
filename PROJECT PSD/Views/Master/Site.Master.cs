@@ -31,11 +31,18 @@ namespace PROJECT_PSD.Views.Master
             string[] cookies = Request.Cookies.AllKeys;
             foreach (string cookie in cookies)
             {
-                Response.Cookies[cookie].Expires = DateTime.Now.AddDays(-1);
+                if (Request.Cookies[cookie] != null)
+                {
+                    HttpCookie expiredCookie = new HttpCookie(cookie)
+                    {
+                        Expires = DateTime.Now.AddDays(-1)
+                    };
+                    Response.Cookies.Add(expiredCookie);
+                }
+
             }
-
             Session.Remove("User");
-
+            Response.Redirect("~/Views/Login.aspx");
         }
     }
 }

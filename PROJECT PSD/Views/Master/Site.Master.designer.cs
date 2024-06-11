@@ -42,6 +42,15 @@ namespace PROJECT_PSD.Views.Master
         protected global::System.Web.UI.WebControls.Panel customerNav;
 
         /// <summary>
+        /// btnLogoutCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnLogoutCustomer;
+
+        /// <summary>
         /// adminNav control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace PROJECT_PSD.Views.Master
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel adminNav;
+
+        /// <summary>
+        /// btnLogoutAdmin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnLogoutAdmin;
 
         /// <summary>
         /// MainContent control.

@@ -42,8 +42,6 @@ namespace PROJECT_PSD.Views
             bool rememberMe = chkRememberMe.Checked;
 
             string validationMessage = UserController.ValidateLogin(username, password);
-            Debug.WriteLine($"Username: {username}, Password: {password}, Remember Me: {rememberMe}");
-
 
             if (validationMessage == null)
             {

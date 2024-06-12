@@ -96,12 +96,12 @@
     <Content Include="Views\InsertSupplement.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\ManageSupplement.aspx" />
+    <Content Include="Views\OrderQueue.aspx" />
     <Content Include="Views\OrderSupplement.aspx" />
     <Content Include="Views\Profile.aspx" />
     <Content Include="Views\Register.aspx" />
     <Content Include="Views\TransactionDetailPage.aspx" />
     <Content Include="Views\TransactionHistory.aspx" />
-    <Content Include="Views\TransactionQueue.aspx" />
     <Content Include="Views\TransactionReport.aspx" />
     <Content Include="Views\UpdateSupplement.aspx" />
     <Content Include="Web.config" />
@@ -192,6 +192,13 @@
     <Compile Include="Views\Master\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="Views\OrderQueue.aspx.cs">
+      <DependentUpon>OrderQueue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OrderQueue.aspx.designer.cs">
+      <DependentUpon>OrderQueue.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\OrderSupplement.aspx.cs">
       <DependentUpon>OrderSupplement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -226,13 +233,6 @@
     </Compile>
     <Compile Include="Views\TransactionHistory.aspx.designer.cs">
       <DependentUpon>TransactionHistory.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TransactionQueue.aspx.cs">
-      <DependentUpon>TransactionQueue.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\TransactionQueue.aspx.designer.cs">
-      <DependentUpon>TransactionQueue.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\TransactionReport.aspx.cs">
       <DependentUpon>TransactionReport.aspx</DependentUpon>

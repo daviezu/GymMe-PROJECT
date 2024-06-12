@@ -30,15 +30,14 @@ namespace PROJECT_PSD.Views
                         int userID = int.Parse(strID);
                         user = UserRepository.GetUserById(userID);
                         Session["User"] = user;
+                    }
 
-                        string role = GetCurrentUserRole();
-                        lblRole.Text = $"Your role is {user.UserRole}";
+                    string role = GetCurrentUserRole();
 
-                        if (role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
-                        {
-                            CustomerGV.Visible = true;
-                            LoadCustomerData();
-                        }
+                    if (role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
+                    {
+                        CustomerGV.Visible = true;
+                        LoadCustomerData();
                     }
                 }
             }

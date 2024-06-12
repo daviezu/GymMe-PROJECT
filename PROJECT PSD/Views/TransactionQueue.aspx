@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div>
-        <asp:GridView ID="TransactionHistoryGV" runat="server" AutoGenerateColumns="false">
+        <asp:GridView ID="TransactionQueueGV" runat="server" AutoGenerateColumns="false">
             <Columns>
                 <asp:BoundField DataField="TransactionId" HeaderText="Transaction Id"></asp:BoundField>
                 <asp:BoundField DataField="TransactionDate" HeaderText="Date"></asp:BoundField>

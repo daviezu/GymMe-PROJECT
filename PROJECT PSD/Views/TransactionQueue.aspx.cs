@@ -25,8 +25,8 @@ namespace PROJECT_PSD.Views
             List<TransactionHeader> list;
             list = TransactionRepository.GetUnhandledTransacion();
 
-            TransactionHistoryGV.DataSource = list;
-            TransactionHistoryGV.DataBind();
+            TransactionQueueGV.DataSource = list;
+            TransactionQueueGV.DataBind();
         }
 
         protected void handle_btn_Click(object sender, EventArgs e)

@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Welcome to GymMe</h2>
-    <asp:Label ID="lblRole" runat="server" Text="Label"></asp:Label>
+    <asp:Label ID="lblRole" runat="server" Text=""></asp:Label>
     <asp:GridView ID="CustomerGV" runat="server" AutoGenerateColumns="False" Visible="False">
         <columns>
             <asp:BoundField DataField="UserId" HeaderText="User ID" SortExpression="UserId" />

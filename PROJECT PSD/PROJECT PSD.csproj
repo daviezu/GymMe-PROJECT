@@ -96,7 +96,6 @@
     <Content Include="Views\InsertSupplement.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\ManageSupplement.aspx" />
-    <Content Include="Views\OrderQueue.aspx" />
     <Content Include="Views\OrderSupplement.aspx" />
     <Content Include="Views\Profile.aspx" />
     <Content Include="Views\Register.aspx" />
@@ -189,13 +188,6 @@
     </Compile>
     <Compile Include="Views\Master\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Views\OrderQueue.aspx.cs">
-      <DependentUpon>OrderQueue.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\OrderQueue.aspx.designer.cs">
-      <DependentUpon>OrderQueue.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\OrderSupplement.aspx.cs">
       <DependentUpon>OrderSupplement.aspx</DependentUpon>

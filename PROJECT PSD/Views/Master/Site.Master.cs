@@ -15,15 +15,20 @@ namespace PROJECT_PSD.Views.Master
             if (!IsPostBack)
             {
                 MsUser user = Session["User"] as MsUser;
-                string role = user.UserRole;
-                if (role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
+                if (user != null)
                 {
-                    adminNav.Visible = true;
+
+                    string role = user.UserRole;
+                    if (role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
+                    {
+                        adminNav.Visible = true;
+                    }
+                    else
+                    {
+                        customerNav.Visible = true;
+                    }
                 }
-                else
-                {
-                    customerNav.Visible = true;
-                }
+                else Response.Redirect("~/Views/Home.aspx");
             }
         }
         protected void Logout_Click(object sender, EventArgs e)

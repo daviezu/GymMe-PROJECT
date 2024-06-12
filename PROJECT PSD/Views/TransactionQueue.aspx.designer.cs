@@ -15,12 +15,12 @@ namespace PROJECT_PSD.Views
     {
 
         /// <summary>
-        /// TransactionHistoryGV control.
+        /// TransactionQueueGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView TransactionHistoryGV;
+        protected global::System.Web.UI.WebControls.GridView TransactionQueueGV;
     }
 }

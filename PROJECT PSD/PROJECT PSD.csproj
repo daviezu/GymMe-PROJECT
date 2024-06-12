@@ -109,12 +109,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\CartController.cs" />
+    <Compile Include="Controller\OrderController.cs" />
     <Compile Include="Controller\SupplementController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Factory\CartFactory.cs" />
     <Compile Include="Factory\SupplementFactory.cs" />
     <Compile Include="Factory\UserFactory.cs" />
     <Compile Include="Handler\JsonHandler.cs" />
+    <Compile Include="Handler\OrderHandler.cs" />
     <Compile Include="Handler\SupplementHandler.cs" />
     <Compile Include="Handler\UserHandler.cs" />
     <Compile Include="Models\LocalDatabaseModel.Context.cs">

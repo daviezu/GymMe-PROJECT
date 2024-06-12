@@ -17,5 +17,16 @@ namespace PROJECT_PSD.Repository
             db.SaveChanges();
             return newCart;
         }
+
+        public static List<MsCart> GetCartByUserID(int userID)
+        {
+            return (from cart in db.MsCarts where cart.UserID == userID select cart).ToList();
+        }
+        public static void ClearCart(int userID)
+        {
+            var cartItems = db.MsCarts.Where(c => c.UserID == userID).ToList();
+            db.MsCarts.RemoveRange(cartItems);
+            db.SaveChanges();
+        }
     }
 }

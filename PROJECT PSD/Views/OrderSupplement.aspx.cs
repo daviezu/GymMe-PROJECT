@@ -1,4 +1,4 @@
-﻿using PROJECT_PSD.Controller;
+﻿    using PROJECT_PSD.Controller;
 using PROJECT_PSD.Models;
 using PROJECT_PSD.Repository;
 using System;
@@ -67,24 +67,66 @@ namespace PROJECT_PSD.Views
                     // Add to cart
                     CartRepository.insertCart(userID, supplementID, quantity);
                     lblMessage.Text = "Success add to cart";
+                    refreshCartPage();
                 }
                 else lblMessage.Text = validationMessage;   
             }
         }
 
-        protected void addToCartbtn_Click(object sender, EventArgs e)
+        private void refreshCartPage()
         {
-            
+            MsUser currentUser = Session["User"] as MsUser;
+            int userID = currentUser.UserID;
+
+            List<MsCart> cartList = CartRepository.GetCartByUserID(userID);
+            cartGV.DataSource = cartList;
+            cartGV.DataBind();
+
+
+            // bkin subtotal
+            foreach (GridViewRow checkoutRow in cartGV.Rows)
+            {
+                int rowIndex = checkoutRow.RowIndex;
+                int quantity = Convert.ToInt32(checkoutRow.Cells[3].Text);
+                int price = Convert.ToInt32(cartList[rowIndex].MsSupplement.SupplementPrice);
+                int subTotal = quantity * price;
+
+                Label subTotalLabel = (Label)checkoutRow.FindControl("SubTotal");
+                subTotalLabel.Text = subTotal.ToString();
+            }
+
+            // bikin total price
+            int totalPrice = cartList.Sum(item => item.Quantity * item.MsSupplement.SupplementPrice);
+            lblTotalPrice.Text = totalPrice.ToString();
+
+            //OrderSupplementGV.DataSource = SupplementRepository.GetAllSupplements();
+            //OrderSupplementGV.DataBind();
         }
 
         protected void btnCheckout_Click(object sender, EventArgs e)
         {
+            MsUser currentUser = Session["User"] as MsUser;
+            int userID = currentUser.UserID;
 
+            //List<MsCart> cartList = new List<MsCart>();
+            try
+            {
+                OrderController.CheckoutCart(userID);
+                lblMessage.Text = "Checkout successful!";
+                refreshCartPage(); // Refresh the cart items
+            }
+            catch (Exception ex)
+            {
+                lblMessage.Text = "Checkout failed: " + ex.Message;
+            }
         }
 
         protected void btnClearCart_Click(object sender, EventArgs e)
         {
-
+            MsUser currentUser = Session["User"] as MsUser;
+            int userID = currentUser.UserID;
+            OrderController.ClearCart(userID);
+            refreshCartPage();
         }
 
     }

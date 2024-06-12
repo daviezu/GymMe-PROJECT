@@ -15,7 +15,7 @@ namespace PROJECT_PSD.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             //MsUser user = Session["User"] as MsUser;
-            MsUser user;
+            MsUser user = null;
             if (!IsPostBack)
             {
                 if (Session["User"] == null && Request.Cookies["user_cookie"] == null)
@@ -33,6 +33,7 @@ namespace PROJECT_PSD.Views
                     }
 
                     string role = GetCurrentUserRole();
+                    lblRole.Text = $"Your role is {role}";
 
                     if (role.Equals("Admin", StringComparison.OrdinalIgnoreCase))
                     {
@@ -48,9 +49,6 @@ namespace PROJECT_PSD.Views
             MsUser user = Session["User"] as MsUser;
             if (user != null)
             {
-                //FormsIdentity id = (FormsIdentity)User.Identity;
-                //FormsAuthenticationTicket ticket = id.Ticket;
-                //return ticket.UserData;
                 return user.UserRole;
             }
             return string.Empty;

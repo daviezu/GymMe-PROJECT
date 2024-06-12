@@ -108,8 +108,10 @@
     <Content Include="WebService\SupplementWebService.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\CartController.cs" />
     <Compile Include="Controller\SupplementController.cs" />
     <Compile Include="Controller\UserController.cs" />
+    <Compile Include="Factory\CartFactory.cs" />
     <Compile Include="Factory\SupplementFactory.cs" />
     <Compile Include="Factory\UserFactory.cs" />
     <Compile Include="Handler\JsonHandler.cs" />
@@ -143,6 +145,7 @@
       <DependentUpon>LocalDatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CartRepository.cs" />
     <Compile Include="Repository\Singleton.cs" />
     <Compile Include="Repository\SupplementRepository.cs" />
     <Compile Include="Repository\TransactionRepository.cs" />

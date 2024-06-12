@@ -13,12 +13,10 @@ namespace PROJECT_PSD.Repository
         public static List<MsSupplement> GetAllSupplements()
         {
             return db.MsSupplements.ToList();
-
         }
 
         public static List<MsSupplementType> GetAllSupplementTypes()
         {
-
             return db.MsSupplementTypes.ToList();
         }
         public static MsSupplement GetSupplementByID(int id)

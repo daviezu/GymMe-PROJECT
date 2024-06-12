@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h1>THIS IS LOGIN PAGE !!!!</h1>
+        <h1>LOGIN PAGE</h1>
         <asp:Label ID="lblMessage" runat="server" ForeColor="Red" />
         <div>
             <asp:Label ID="lblUsername" Text="Username" runat="server" />

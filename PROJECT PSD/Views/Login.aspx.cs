@@ -15,24 +15,6 @@ namespace PROJECT_PSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //MsUser currentUser;
-            //if (Session["User"] == null)
-            //{
-            //    Response.Redirect("~/Views/Login.aspx");
-            //}
-            //else
-            //{
-            //    if (Session["User"] == null)
-            //    {
-            //        int id = int.Parse(Request.Cookies["user_cookie"].Value);
-            //        currentUser = UserRepository.GetUserById(id);
-            //        Session["User"] = currentUser;
-            //    }
-            //    else
-            //    {
-            //        currentUser = Session["User"] as MsUser;
-            //    }
-            //}
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
+using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -107,18 +108,8 @@ namespace PROJECT_PSD.Views
         {
             MsUser currentUser = Session["User"] as MsUser;
             int userID = currentUser.UserID;
-
-            //List<MsCart> cartList = new List<MsCart>();
-            try
-            {
-                OrderController.CheckoutCart(userID);
-                lblMessage.Text = "Checkout successful!";
-                refreshCartPage(); // Refresh the cart items
-            }
-            catch (Exception ex)
-            {
-                lblMessage.Text = "Checkout failed: " + ex.Message;
-            }
+            lblMessage.Text = OrderController.CheckoutCart(userID);
+            refreshCartPage();
         }
 
         protected void btnClearCart_Click(object sender, EventArgs e)

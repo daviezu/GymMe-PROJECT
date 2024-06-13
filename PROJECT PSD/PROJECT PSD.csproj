@@ -82,6 +82,8 @@
     <Content Include="App_Data\LocalDatabase_log.ldf">
       <DependentUpon>LocalDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="bin\PROJECT PSD.dll" />
+    <Content Include="bin\PROJECT PSD.pdb" />
     <Content Include="Models\LocalDatabaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LocalDatabaseModel.Context.cs</LastGenOutput>
@@ -100,6 +102,14 @@
     <Content Include="Views\OrderSupplement.aspx" />
     <Content Include="Views\Profile.aspx" />
     <Content Include="Views\Register.aspx" />
+    <Content Include="Views\Styles\GridStyleSheet.css" />
+    <Content Include="Views\Styles\HomeStyleSheet.css" />
+    <Content Include="Views\Styles\InsertUpdateStyleSheet.css" />
+    <Content Include="Views\Styles\LoginStyleSheet.css" />
+    <Content Include="Views\Styles\ManageSuppStyleSheet.css" />
+    <Content Include="Views\Styles\ProfileStyleSheet.css" />
+    <Content Include="Views\Styles\RegisterStyleSheet.css" />
+    <Content Include="Views\Styles\SiteStyleSheet.css" />
     <Content Include="Views\TransactionDetailPage.aspx" />
     <Content Include="Views\TransactionHistory.aspx" />
     <Content Include="Views\TransactionReport.aspx" />
@@ -114,6 +124,7 @@
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Factory\CartFactory.cs" />
     <Compile Include="Factory\SupplementFactory.cs" />
+    <Compile Include="Factory\TransactionFactory.cs" />
     <Compile Include="Factory\UserFactory.cs" />
     <Compile Include="Handler\JsonHandler.cs" />
     <Compile Include="Handler\OrderHandler.cs" />
@@ -146,6 +157,7 @@
     <Compile Include="Models\MsUser.cs">
       <DependentUpon>LocalDatabaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CartRepository.cs" />
     <Compile Include="Repository\Singleton.cs" />

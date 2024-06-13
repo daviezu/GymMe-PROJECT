@@ -2,8 +2,8 @@
 using PROJECT_PSD.Repository;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Web;
 
 namespace PROJECT_PSD.Handler
 {
@@ -16,50 +16,34 @@ namespace PROJECT_PSD.Handler
 
         public static void ClearCart(int userID)
         {
-            CartRepository.ClearCart(userID);    
+            CartRepository.ClearCart(userID);
         }
 
-        public static void CheckoutCart(int userID)
+        public static bool MakeTransaction(int userID)
         {
+            var cartItems = GetCartByUserID(userID);
+
+            if (cartItems == null || !cartItems.Any())
+            {
+                return false;
+            }
+
             using (var db = new LocalDatabaseEntities())
             {
                 using (var transaction = db.Database.BeginTransaction())
                 {
                     try
                     {
-                        // Retrieve cart items
-                        var cartItems = GetCartByUserID(userID);
+                        var newHeader = TransactionRepository.CreateNewTransactionHeader(userID, DateTime.Now, "unhandled");
 
-                        if (cartItems.Count == 0)
+                        foreach (var cartItem in cartItems)
                         {
-                            throw new Exception("Your cart is empty.");
+                            TransactionRepository.CreateNewTransactionDetail(newHeader.TransactionID, cartItem.SupplementID, cartItem.Quantity);
+                            CartRepository.deleteCart(cartItem);
                         }
 
-                        //// Create order header
-                        //var order = new Order
-                        //{
-                        //    UserId = userId,
-                        //    OrderDate = DateTime.Now,
-                        //    Status = "Unhandled"
-                        //};
-
-                        //CartRepository.AddOrder(order);
-
-                        //// Add order details
-                        //var orderDetails = cartItems.Select(cartItem => new OrderDetail
-                        //{
-                        //    OrderId = order.OrderId,
-                        //    SupplementId = cartItem.SupplementId,
-                        //    Quantity = cartItem.Quantity,
-                        //    Price = cartItem.Supplement.Price
-                        //}).ToList();
-
-                        //CartRepository.AddOrderDetails(orderDetails);
-
-                        // Clear cart
-                        ClearCart(userID);
-
                         transaction.Commit();
+                        return true;
                     }
                     catch (Exception ex)
                     {

@@ -1,9 +1,6 @@
 ﻿using PROJECT_PSD.Handler;
 using PROJECT_PSD.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace PROJECT_PSD.Controller
 {
@@ -19,9 +16,17 @@ namespace PROJECT_PSD.Controller
             OrderHandler.ClearCart(userId);
         }
 
-        public static void CheckoutCart(int userId)
+        public static string CheckoutCart(int userId)
         {
-            OrderHandler.CheckoutCart(userId);
+            if (OrderHandler.MakeTransaction(userId))
+            {
+                return "Checkout successful";
+            }
+            else
+            {
+                return "Checkout failed: Your cart is empty.";
+            }
         }
     }
 }
+    

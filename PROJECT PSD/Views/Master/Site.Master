@@ -7,6 +7,11 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <link href="~/Views/Styles/SiteStyleSheet.css" rel="stylesheet" type="text/css" />
+    <link href="~/Views/Styles/ProfileStyleSheet.css" rel="stylesheet" type="text/css" />
+    <link href="~/Views/Styles/HomeStyleSheet.css" rel="stylesheet" type="text/css" />
+    <link href="~/Views/Styles/GridStyleSheet.css" rel="stylesheet" type="text/css" />
+    <link href="~/Views/Styles/InsertUpdateStyleSheet.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">

@@ -28,5 +28,11 @@ namespace PROJECT_PSD.Repository
             db.MsCarts.RemoveRange(cartItems);
             db.SaveChanges();
         }
+
+        public static void deleteCart(MsCart cart)
+        {
+            db.MsCarts.Remove(cart);
+            db.SaveChanges();
+        }
     }
 }

@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Master/Site.Master" AutoEventWireup="true" CodeBehind="Profile.aspx.cs" Inherits="PROJECT_PSD.Views.Profile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="~/Views/Styles/ProfileStyleSheet.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-     <div>
+     <div class="profile-section">
      <h2>Update Profile</h2>
      <asp:Label ID="lblProfileMessage" runat="server" ForeColor="Red"></asp:Label>
      <br />
@@ -26,7 +27,7 @@
      <asp:Button ID="btnUpdateProfile" runat="server" Text="Update Profile" OnClick="btnUpdateProfile_Click" />
  </div>
  <br />
- <div>
+ <div class="password-section">
      <h2>Change Password</h2>
      <asp:Label ID="lblPasswordMessage" runat="server" ForeColor="Red"></asp:Label>
      <br />

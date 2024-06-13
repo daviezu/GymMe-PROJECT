@@ -1,8 +1,8 @@
-﻿using PROJECT_PSD.Models;
+﻿using PROJECT_PSD.Factory;
+using PROJECT_PSD.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace PROJECT_PSD.Repository
 {
@@ -12,36 +12,51 @@ namespace PROJECT_PSD.Repository
 
         public static List<TransactionDetail> GetAllTransactionDetail()
         {
-            List<TransactionDetail> transactionDetail = db.TransactionDetails.ToList();
-            return transactionDetail;
+            return db.TransactionDetails.ToList();
         }
 
         public static List<TransactionHeader> GetAllTransactionHeader()
         {
-            List<TransactionHeader> transactionHeaders = db.TransactionHeaders.ToList();
-            return transactionHeaders;
+            return db.TransactionHeaders.ToList();
         }
 
         public static List<TransactionHeader> GetAllUserTransaction(int id)
         {
-            return (from transaction in db.TransactionHeaders where transaction.UserID == id select transaction).ToList();
+            return db.TransactionHeaders.Where(t => t.UserID == id).ToList();
         }
 
         public static TransactionHeader GetTransactionHeaderById(int id)
         {
-            TransactionHeader getTransactionHeader = (from transaction in db.TransactionHeaders where transaction.TransactionID == id select transaction).FirstOrDefault();
-            return getTransactionHeader;
+            return db.TransactionHeaders.FirstOrDefault(t => t.TransactionID == id);
         }
 
-        public static List<TransactionHeader> GetUnhandledTransacion()
+        public static List<TransactionHeader> GetUnhandledTransaction()
         {
-            return (from transaction in db.TransactionHeaders where transaction.Status == "Unhandled" select transaction).ToList();
+            return db.TransactionHeaders.Where(t => t.Status == "Unhandled").ToList();
         }
 
-        public static void UpdateTransactionstatus(TransactionHeader transactionHeader)
+        public static void UpdateTransactionStatus(TransactionHeader transactionHeader)
         {
             var existingTransaction = db.TransactionHeaders.Find(transactionHeader.TransactionID);
-            existingTransaction.Status = transactionHeader.Status;
+            if (existingTransaction != null)
+            {
+                existingTransaction.Status = transactionHeader.Status;
+                db.SaveChanges();
+            }
+        }
+
+        public static TransactionHeader CreateNewTransactionHeader(int userId, DateTime transactionDate, string status)
+        {
+            var transactionHeader = TransactionFactory.newTransactionHeader(userId, transactionDate, status);
+            db.TransactionHeaders.Add(transactionHeader);
+            db.SaveChanges();
+            return transactionHeader;
+        }
+
+        public static void CreateNewTransactionDetail(int transactionId, int supplementId, int quantity)
+        {
+            var transactionDetail = TransactionFactory.newTransactionDetail(transactionId, supplementId, quantity);
+            db.TransactionDetails.Add(transactionDetail);
             db.SaveChanges();
         }
     }

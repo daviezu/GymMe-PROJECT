@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Master/Site.Master" AutoEventWireup="true" CodeBehind="ManageSupplement.aspx.cs" Inherits="PROJECT_PSD.Views.ManageSupplement" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="~/Views/Styles/GridStyleSheet.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Manage Supplement</h1>
     <div>
-        <asp:GridView ID="ManageSupplementGV" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" DataKeyNames="SupplementID" OnRowDataBound="GridView1_RowDataBound">
+        <asp:GridView ID="ManageSupplementGV" runat="server" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" DataKeyNames="SupplementID" OnRowDataBound="GridView1_RowDataBound" CssClass="GridView">
             <Columns>
                 <asp:BoundField DataField="SupplementName" HeaderText="Name" SortExpression="SupplementName" />
                 <asp:BoundField DataField="SupplementExpiryDate" HeaderText="Expiry Date" SortExpression="SupplementExpiryDate" />

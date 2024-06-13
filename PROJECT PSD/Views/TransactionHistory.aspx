@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Master/Site.Master" AutoEventWireup="true" CodeBehind="TransactionHistory.aspx.cs" Inherits="PROJECT_PSD.Views.TransactionHistory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="~/Views/Styles/GridStyleSheet.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <h1>TRANSACTION HISTORY PAGE</h1>
     <div>
-        <asp:GridView ID="TransactionHistoryGV" runat="server" AutoGenerateColumns="false">
+        <asp:GridView ID="TransactionHistoryGV" runat="server" AutoGenerateColumns="false" CssClass="GridView">
             <Columns>
                 <asp:BoundField DataField="TransactionId" HeaderText="Transaction Id"></asp:BoundField>
                 <asp:BoundField DataField="TransactionDate" HeaderText="Date"></asp:BoundField>

@@ -23,7 +23,7 @@ namespace PROJECT_PSD.Views
         protected void bindgridview()
         {
             List<TransactionHeader> list;
-            list = TransactionRepository.GetUnhandledTransacion();
+            list = TransactionRepository.GetUnhandledTransaction();
 
             TransactionQueueGV.DataSource = list;
             TransactionQueueGV.DataBind();
@@ -35,7 +35,7 @@ namespace PROJECT_PSD.Views
             TransactionHeader tobeupdated = TransactionRepository.GetTransactionHeaderById(transactionID);
 
             tobeupdated.Status = "handled";
-            TransactionRepository.UpdateTransactionstatus(tobeupdated);
+            TransactionRepository.UpdateTransactionStatus(tobeupdated);
         }
     }
 }

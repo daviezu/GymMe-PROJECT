@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="~/Views/Styles/RegisterStyleSheet.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -47,6 +48,7 @@
                 <asp:TextBox ID="txtDOB" runat="server" ReadOnly="true" />
             </div>
             <asp:Button ID="btnRegister" runat="server" Text="Register" OnClick="btnRegister_Click" />
+        <br />
             <br />
             <asp:HyperLink ID="hlLogin" runat="server" NavigateUrl="~/Views/Home.aspx">Already have an account? Login here</asp:HyperLink>
         </div>
